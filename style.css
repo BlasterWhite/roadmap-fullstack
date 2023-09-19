@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Recursive&display=swap');
+
 body {
     background: #232830;
     color: #FFFFFF;
+    font-family: Poppins, sans-serif;
 }
 
 header {
@@ -50,6 +53,7 @@ ul {
 hr {
     opacity: 0.2;
     background: #4D4D4D;
+    margin: 30px 0;
 }
 
 nav.tags {
