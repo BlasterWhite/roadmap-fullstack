@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub Profiler</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1>GitHub Profiler</h1>
+<div id="search">
+    <input type="text" id="searchTerm" placeholder="Enter a GitHub username">
+    <button id="searchButton">Search</button>
+</div>
+<div id="profile">
+    <div class="grids">
+        <div class="grid-1">
+            <img class="profile-avatar" src="" alt="avatar">
+            <div>
+                <h2 class="profile-login">Login</h2>
+                <p>Name: <span class="profile-name">John Doe</span></p>
+                <p>Location: <span class="profile-location">San Francisco</span></p>
+                <p>Company: <span class="profile-company">GitHub</span></p>
+            </div>
+        </div>
+        <div class="grid-2">
+            <p>Account type: <span class="profile-type">User</span></p>
+            <p>Admin: <span class="profile-admin">True</span></p>
+            <p>Id: <span class="profile-id"></span></p>
+            <p>Bio: <span class="profile-bio"></span></p>
+            <p>Website: <a href="#" class="profile-website" target="_blank"><span
+                    class="profile-website">https://google.fr/</span></a></p>
+            <p>Email: <span class="profile-email"></span></p>
+            <p>Twitter: <a href="#" class="profile-twitter"><span class="profile-twitter"></span></a></p>
+            <p>Followers: <span class="profile-followers">0</span></p>
+            <p>Following: <span class="profile-following">0</span></p>
+            <p>Public repos: <span class="profile-public-repos">0</span></p>
+            <p>Public gists: <span class="profile-public-gists">0</span></p>
+            <p>Created at: <span class="profile-created-at">2011-01-25T18:44:36Z</span></p>
+            <p>Updated at: <span class="profile-updated-at">2021-01-25T18:44:36Z</span></p>
+        </div>
+        <div class="grid-3">
+            <h3>Lists click have more details</h3>
+            <details>
+                <summary>Repositories</summary>
+                <div id="profile-repos"></div>
+            </details>
+            <details>
+                <summary>Gists</summary>
+                <div id="profile-gists"></div>
+            </details>
+            <details>
+                <summary>Followers</summary>
+                <div id="profile-followers"></div>
+            </details>
+            <details>
+                <summary>Following</summary>
+                <div id="profile-following"></div>
+            </details>
+    </div>
+</div>
+<footer>
+    <p>Created by <a href="#"> BlasterWhite</a></p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
