@@ -7,10 +7,11 @@ body {
 
 table {
     margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 table, th, td {
-    border: 1px solid #FFFFFF;
     border-collapse: collapse;
 }
 
@@ -19,11 +20,8 @@ th, td {
 }
 
 th {
-    background-color: #444444;
-}
-
-td {
-    background-color: #666666;
+    padding: 10px 5px;
+    background-color: #11c5e8;
 }
 
 a {
@@ -40,5 +38,67 @@ a:hover {
 }
 
 .col-2 {
-    width: 20%;
+    width: 80%;
+}
+
+.col-3 {
+    width: 10%;
+}
+
+tbody {
+    & input[type="text"] {
+        width: calc(100% - 1rem);
+        background-color: transparent;
+        border: none;
+        color: #black;
+        font-family: sans-serif;
+        font-size: 1rem;
+        margin: 0;
+        padding: 0.2rem 0.5rem;
+    }
+
+    & input[type="text"]:focus {
+        outline: none;
+    }
+
+    & tr {
+        background-color: #fdf2f2;
+        &:nth-child(odd) {
+            background-color: #d5d5d5;
+        }
+    }
+
+    & > tr.completed {
+        & input[type="text"] {
+            font-style: italic;
+            opacity: 50%;
+            text-decoration: line-through #000 solid 2px;
+        }
+    }
+}
+
+button {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: none;
+    transition: .3s ease-in-out;
+
+    &.btn-delete {
+        background-color: #e74c3c;
+        color: #FFFFFF;
+
+        &:hover {
+            background-color: #c0392b;
+        }
+    }
+
+    &#addTask {
+        margin: 1rem;
+        background-color: #2ec223;
+        color: #FFFFFF;
+
+        &:hover {
+            background-color: #1e8816;
+        }
+    }
 }

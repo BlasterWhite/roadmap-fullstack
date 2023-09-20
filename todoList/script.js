@@ -9,6 +9,13 @@ let tasks = localStorage.getItem('tasks');
 
 if (tasks) {
     tasks = JSON.parse(tasks);
+    setTask()
+} else {
+    tasks = [];
+}
+
+function setTask() {
+    taskList.innerHTML = '';
     tasks.forEach(function (task) {
         addTask(task);
     });
@@ -17,6 +24,7 @@ if (tasks) {
 function addTask(task) {
     let taskRow = document.createElement('tr');
     taskRow.id = `taskRow-${task.id}`;
+    if(task.completed) taskRow.classList.add('completed');
 
     let taskCheckbox = document.createElement('input');
     taskCheckbox.type = 'checkbox';
@@ -34,8 +42,7 @@ function addTask(task) {
     taskTitle.type = 'text';
     taskTitle.value = task.title;
     taskTitle.id = `taskTitle-${task.id}`;
-    taskTitle.addEventListener('keydown', function (event) {
-        console.log(event.key);
+    taskTitle.addEventListener('focusout', function (event) {
         updateTask(task.id, {
             id: task.id,
             completed: task.completed,
@@ -47,6 +54,7 @@ function addTask(task) {
     taskDelete.type = 'button';
     taskDelete.innerText = 'Delete';
     taskDelete.id = `taskDelete-${task.id}`;
+    taskDelete.classList.add('btn-delete');
     taskDelete.addEventListener('click', function (event) {
         deleteTask(task.id);
     });
@@ -82,11 +90,16 @@ function updateTask(taskId, task) {
     tasks[taskIndex] = task;
 
     saveTasks();
+    setTask();
 }
 
 function addNewTask() {
+    let id = 1;
+    if(tasks && tasks.length > 0) {
+        id = tasks[tasks.length - 1].id + 1;
+    }
     let task = {
-        id: tasks[tasks.length - 1] ? tasks[tasks.length - 1].id + 1 : 1,
+        id,
         completed: false,
         title: '',
     };
@@ -97,6 +110,10 @@ function addNewTask() {
 function deleteTask(taskId) {
     let taskRow = document.getElementById(`taskRow-${taskId}`);
     taskList.removeChild(taskRow);
+    tasks = tasks.filter(function (task) {
+        return task.id !== taskId;
+    });
+    saveTasks();
 }
 
 function onTaskChange(taskId, task) {
