@@ -12,7 +12,15 @@
         >Blog</router-link
       >
     </div>
+    <base-user
+      v-if="isUserLoggedIn"
+      class="w-1/6 flex-row text-right text-slate-950 justify-self-end"
+      :email="userEmail"
+      :username="userName"
+      :image="userAvatar"
+    />
     <router-link
+      v-else
       to="/member"
       class="member p-2 link w-1/6 flex-row text-right text-slate-950"
     >
@@ -25,6 +33,12 @@
 <script setup>
 import IconPerson from "./icons/IconPerson.vue";
 import { RouterLink } from "vue-router";
+import BaseUser from "./BaseUser.vue";
+import { useGlobalStore } from "../stores/globalStore.js";
+import { storeToRefs } from "pinia";
+
+const store = useGlobalStore();
+const { userName, userEmail, userAvatar, isUserLoggedIn } = storeToRefs(store);
 </script>
 
 <style scoped lang="scss">
